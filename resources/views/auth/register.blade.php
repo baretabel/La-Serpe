@@ -8,36 +8,22 @@
                 <div class="panel-heading">Register</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ routes('register') }}">
+                    <form class="form-horizontal" method="POST" action="{{ route('register') }}">
                         {{ csrf_field() }}
 
-                        <div class="form-group{{ $errors->has('nom') ? ' has-error' : '' }}">
-                            <label for="nom" class="col-md-4 control-label">Nom</label>
+                        <div class="form-group{{ $errors->has('pseudo') ? ' has-error' : '' }}">
+                            <label for="pseudo" class="col-md-4 control-label">Pseudo</label>
 
                             <div class="col-md-6">
-                                <input id="nom" type="text" class="form-control" name="nom" value="{{ old('nom') }}" required autofocus>
+                                <input id="pseudo" type="text" class="form-control" name="pseudo" value="{{ old('name') }}" required autofocus>
 
-                                @if ($errors->has('nom'))
+                                @if ($errors->has('pseudo'))
                                     <span class="help-block">
-                                        <strong>{{ $errors->first('nom') }}</strong>
+                                        <strong>{{ $errors->first('pseudo') }}</strong>
                                     </span>
                                 @endif
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('pnom') ? ' has-error' : '' }}">
-                                <label for="pnom" class="col-md-4 control-label">Prénom</label>
-    
-                                <div class="col-md-6">
-                                    <input id="pnom" type="text" class="form-control" name="pnom" value="{{ old('pnom') }}" required autofocus>
-    
-                                    @if ($errors->has('pnom'))
-                                        <span class="help-block">
-                                            <strong>{{ $errors->first('pnom') }}</strong>
-                                        </span>
-                                    @endif
-                                </div>
-                            </div>
 
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                             <label for="email" class="col-md-4 control-label">E-Mail Address</label>

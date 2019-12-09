@@ -17,9 +17,9 @@ Route::get('/test2', 'PageController@test2');
 
 Route::get('/produits', 'ProductController@index');
 
-Route::get('/form', 'ProductController@form');
+Route::get('/form', 'SerpeControleur@index');
 
-Route::post('/insert', 'ProductController@create');
+Route::post('/insert', 'SerpeControleur@create');
 
 Route::post('/update', 'ProductController@update');
 
@@ -32,6 +32,14 @@ Route::get('/form/{id}', 'ProductController@modif');
 Route::get('/', function () {
     return view('welcome');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
