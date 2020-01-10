@@ -11,23 +11,53 @@
 |
 */
 
-Route::get('/test', 'PageController@test');
 
-Route::get('/test2', 'PageController@test2');
+Route::get('/admin', 'AdminController@admin');
 
-Route::get('/produits', 'ProductController@index');
+Route::get('/especes', 'AdminController@especes');
 
-Route::get('/form', 'SerpeControleur@index');
+Route::get('/articles', 'AdminController@articles');
+
+Route::get('/form', 'SerpeControleur@form');
+
+Route::get('/aff', 'SerpeControleur@aff');
+
+Route::get('/new/{id}', 'SerpeControleur@nouv');
+
+Route::get('/espece/{id}', 'SerpeControleur@show');
+
+Route::get('/article/{id}', 'SerpeControleur@article');
 
 Route::post('/insert', 'SerpeControleur@create');
 
-Route::post('/update', 'ProductController@update');
+Route::post('/com', 'SerpeControleur@com');
 
-Route::get('/produit/{id}', 'ProductController@show');
+Route::post('/art', 'SerpeControleur@art');
 
-Route::get('/produits/{id}', 'ProductController@destroy');
+Route::post('/modif', 'AdminController@modif');
+Route::post('/modiff', 'AdminController@modiff');
+Route::post('/up', 'AdminController@up');
 
-Route::get('/form/{id}', 'ProductController@modif');
+Route::get('/commentaire', 'AdminController@com');
+
+Route::get('/user', 'AdminController@user');
+
+Route::get('/destroy/{id}', 'AdminController@destroy');
+
+Route::get('/sup/{id}', 'AdminController@sup');
+
+Route::get('/val/{id}', 'AdminController@val');
+
+Route::get('/supp/{id}', 'AdminController@supp');
+
+Route::get('/valid/{id}', 'AdminController@valid');
+
+Route::get('/util/{id}', 'AdminController@util');
+
+Route::get('/mod/{id}', 'AdminController@mod');
+Route::get('/sign/{id}', 'AdminController@sign');
+
+Route::get('/admin/{id}', 'AdminController@admins');
 
 Route::get('/', function () {
     return view('welcome');

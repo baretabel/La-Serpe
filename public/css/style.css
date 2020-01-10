@@ -1,0 +1,11 @@
+.cadre{
+
+    background-color: rgb(172, 114, 38)!important;
+    border-radius: 5px;
+    padding: 5px ;
+    width: 230;
+    margin: 7px;
+}
+body{
+    background-color: aqua;
+}

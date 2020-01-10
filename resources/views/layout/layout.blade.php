@@ -5,18 +5,19 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Starter Template · Bootstrap</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>La Serpe</title>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">-->
 
     <!-- Bootstrap core CSS -->
-<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
 
-
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
@@ -38,14 +39,72 @@
   </head>
   <body>
    
+    <div id="app">
+      <nav class="navbar navbar-default navbar-static-top" style="margin-bottom: 0px !important">
+          <div class="container">
+              <div class="navbar-header">
 
-<main role="main" class="container">
+                  <!-- Collapsed Hamburger -->
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                      <span class="sr-only">Toggle Navigation</span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                  </button>
+
+                  <!-- Branding Image -->
+                  <a class="navbar-brand" href="/aff">
+                      La Serpe
+                  </a>
+              </div>
+
+              <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                  <!-- Left Side Of Navbar -->
+                  <ul class="nav navbar-nav">
+                      &nbsp;
+                  </ul>
+
+                  <!-- Right Side Of Navbar -->
+                  <ul class="nav navbar-nav navbar-right">
+                      <!-- Authentication Links -->
+                      @if (Auth::guest())
+                          <li><a href="{{ route('login') }}">Login</a></li>
+                          <li><a href="{{ route('register') }}">Register</a></li>
+                      @else
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                  {{ Auth::user()->pseudo }} <span class="caret"></span>
+                              </a>
+
+                              <ul class="dropdown-menu" role="menu">
+                                  <li>
+                                      <a href="/aff"
+                                          onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                                          Logout
+                                      </a>
+
+                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                          {{ csrf_field() }}
+                                      </form>
+                                  </li>
+                                  @if(Auth::user()->role_id!=1)
+                                  <li>
+                                    <a href="/admin">Dashboard</a>
+                                  </li>
+                                  @endif
+                              </ul>
+                          </li>
+                      @endif
+                  </ul>
+              </div>
+          </div>
+      </nav>
 
   <div class="starter-template">
      @yield('content')
   </div>
 
-</main><!-- /.container -->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="/docs/4.3/assets/js/vendor/jquery-slim.min.js"><\/script>')</script><script src="/docs/4.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script></body>
+
+<script src="{{ asset('js/app.js') }}"></script>
 </html>

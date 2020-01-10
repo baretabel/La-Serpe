@@ -7,6 +7,19 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
+    public function role(){
+        return $this->belongsTo('App\Role');
+    }
+    public function commentaire(){
+        return $this->hasMany('App\Commentaire');
+    }
+    public function article(){
+        return $this->hasMany('App\Article');
+    }
+    public function message(){
+        return $this->hasMany('App\Message');
+    }
+ 
     use Notifiable;
 
     /**
@@ -15,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'id_role', 'pseudo', 'email', 'password',
+        'role_id', 'pseudo', 'email', 'password',
     ];
 
     /**

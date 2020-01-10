@@ -1,4 +1,4 @@
-@extends('layout/layout')
+@extends('layout.layout')
 @section('content')
 
 
@@ -11,23 +11,24 @@
           </div>
         <div class="form-group">
           <label for="nomLatin">Nom Latin</label>
-          <input type="text" class="form-control" name="latin" id="nomLatin" placeholder="Nom Latin">
+          <input type="text" class="form-control" name="latin" id="nomLatin" placeholder="Nom Latin" required>
         </div>
         <div class="form-group">
                 <label for="nomCreole">Nom Créole</label>
-                <input type="text" class="form-control"name="creole" id="nomCreole" placeholder="Famille de produit">
+                <input type="text" class="form-control"name="creole" id="nomCreole" placeholder="Nom Créole" >
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Famille Botanique </label>
-                <input type="text" class="form-control"name="famille" id="exampleInputPassword1" placeholder="Famille de produit">
+                <label for="famille">Famille Botanique </label>
+                <input type="text" class="form-control"name="famille" id="famille" placeholder="Famille Botanique" required>
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Type de plante</label>
-                <input type="text" class="form-control"name="type" id="exampleInputPassword1" placeholder="Famille de produit">
+                <label for="type">Type de plante</label>
+                <input type="text" class="form-control"name="type" id="type" placeholder="Type de plante" required>
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">Description</label><br>
-                <textarea  name="description" rows="5" cols="33"></textarea>
+                <label for="description">Description</label><br>
+                
+                <textarea id="description" name="description" rows="5" cols="33" required></textarea>
               </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>

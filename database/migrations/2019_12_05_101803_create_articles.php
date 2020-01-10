@@ -15,13 +15,11 @@ class CreateArticles extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_especes');
-            $table->integer('id_users');
+            $table->integer('espece_id');
+            $table->integer('user_id');
             $table->string('titre');
             $table->text('post');
-            $table->integer('point_p');
-            $table->text('point_n');
-            $table->boolean('etat');
+            $table->boolean('etat')->default(false);
             $table->timestamps();
         });
     }
