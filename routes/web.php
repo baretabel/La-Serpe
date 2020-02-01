@@ -55,12 +55,11 @@ Route::get('/valid/{id}', 'AdminController@valid');
 Route::get('/util/{id}', 'AdminController@util');
 
 Route::get('/mod/{id}', 'AdminController@mod');
-Route::get('/sign/{id}', 'AdminController@sign');
 
 Route::get('/admin/{id}', 'AdminController@admins');
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->action('SerpeControleur@aff');;
 });
 Auth::routes();
 
