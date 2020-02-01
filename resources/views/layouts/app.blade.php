@@ -17,8 +17,8 @@
    
     <div id="app">
       <nav class="navbar navbar-default navbar-static-top">
-          <div class="container">
-              <div class="navbar-header">
+          <div class="container" >
+              <div class="navbar-header" style="background-color: #167549">
 
                   <!-- Collapsed Hamburger -->
                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">

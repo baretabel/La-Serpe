@@ -71,7 +71,7 @@
                   </div>
                   <div class="modal-body">
                     {{$article->post}} <br>
-                    par {{$article->user->pseudo}}
+                    par {{$valide->user->pseudo}}
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
