@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 use App\Espece;
 use App\Commentaire;
 use App\Article;
-use App\Signal;
 
 use Illuminate\Http\Request;
 
@@ -47,7 +46,7 @@ class SerpeControleur extends Controller
         $especes->type = $request->type;
         $especes->description = $request->description;
         $especes->save();
-        return redirect()->action('SerpeControleur@aff');
+        return redirect()->action('SerpeControleur@index');
       }
       public function com(Request $request){
   
@@ -74,10 +73,4 @@ class SerpeControleur extends Controller
         $articles->save();
         return redirect()->action('SerpeControleur@show', array($request->id));
       }
-      //public function sign($id){
-       // $signal = Signal::find($id);
-//}
 }
-/* balise article pour le listing+image, 
-user_id pour le signal ainsi q'un count row,
-crée un fil d'arriane,*/
