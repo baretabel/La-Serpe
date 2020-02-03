@@ -46,7 +46,7 @@ class SerpeControleur extends Controller
         $especes->type = $request->type;
         $especes->description = $request->description;
         $especes->save();
-        return redirect()->action('SerpeControleur@index');
+        return redirect()->action('SerpeControleur@aff');
       }
       public function com(Request $request){
   
