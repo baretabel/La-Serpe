@@ -3,7 +3,7 @@
 
 
 <br><br><br>
-<form action="/insert" method="POST">
+<form action="/insert" method="POST" style="widht: 50%; margin-left:50px">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
           <label for="nomCommun">Nom Commun</label>
