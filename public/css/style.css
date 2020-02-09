@@ -1,8 +1,208 @@
-.cadre{
+.form-cad{
+    width:35%;
+    background-color: #1675496b;
+    padding: 50px; 
+    border-radius: 7px;
+    margin-bottom: 50px!important;
+    margin: auto;
+   
+}
+.form-cad h2{
+    text-align: center;
+}
+.navbar-default{
+    background-color: #1675496b!important;
+}.art-cad{
+    position: relative;
+    width: 200px;
+    height:300px;
+    border-bottom: solid #167549 5px;
+    margin: 5px;
+    
+}
+.arti{
+    position: absolute;
+    bottom: 0;
+}
+.art-cad img{
+    max-width: 200px;
+    max-height: 200px;
+}
+.aligne-art{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  
+}
+.bg-danger{
+    background-color: #e7a4306d!important;
+}
+.border-nav{
+    border-right: solid #e7a43059 1px;
+}
+.text-art{
+    text-align: center;
+}
+.corps{
+      width: 75%;
+    height: 100%;
+    background-color: #e7a4306d;
+    margin:auto;
+    padding: 10px;
+    border-right: solid #e7a43059 1px;
+    border-left: solid #e7a43059 1px;
+}
+.corps h2{
+    text-align: center;
+    margin-bottom: 30px;
+    color:#167549!important;
+}
+a{
+    color:#167549!important;
+}
+.navbar-default .navbar-toggle:hover{
+    background-color: #1675496b!important;
+}
+.navbar-default .navbar-toggle{
+    border-color:#167549!important;
+}.navbar-default .navbar-toggle .icon-bar{
+    background-color: #167549!important;
+}
+#onglets
+{
 
-    background-color: rgb(172, 114, 38)!important;
-    border-radius: 5px;
-    padding: 5px ;
-    width: 230;
-    margin: 7px;
+    list-style-type : none;
+    padding-bottom : 24px; 
+    border-bottom : 1px solid #9EA0A1;
+    margin-left : 0;
+}
+#onglets li
+{
+    float : left;
+    height : 21px; /* à modifier suivant la taille de la police pour centrer le texte dans l'onglet */
+    background-color: #f5f8fa;
+    margin : 2px 2px 0 2px !important;  /* Pour les navigateurs autre que IE */
+    margin : 1px 2px 0 2px;  /* Pour IE  */
+
+    border-bottom: none !important;
+    border : 1px solid #9EA0A1;
+}
+#onglets li.activer p
+{
+    border-bottom: 1px solid #f5f8fa;
+    background-color:#f5f8fa;
+}
+#onglets p
+{
+    border-bottom: none ;
+    display : block;
+    color : #666;
+    text-decoration : none;
+    margin-right: 10px;
+    padding : 4px;
+}
+#onglets p:hover
+{
+    background : #f5f8fa;
+}
+
+.inv{
+    display:none;
+}
+.vis
+{
+    display:block !important;
+}
+#image-es{
+    max-height: 350px;
+}
+.desc{
+    text-align: center;
+}.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+    background-color: #1675496b!important;
+}
+.dropdown-menu{
+    background-color: #1675496b!important;
+}
+.vis-com{
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+#com1{
+    text-align: center;
+    margin-right: 8%;
+}
+#com2{
+    padding-left: 2%;
+   height:250px;
+   width: 350px;
+   border-left: solid 1px;
+    margin-top: 1%;
+    overflow-y: auto;
+}.com h5{
+    color:#167549;
+}
+.date-com{
+    font-size: small;
+    color:#636b6f5d;
+}
+.com{
+    margin-bottom: 20px;
+}
+.détails{
+    display:flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+#carac{
+    text-align: center;
+}
+@media screen and (max-width: 1050px) {
+    .form-cad{
+        width:80%;
+        background-color: #1675496b;
+        padding: 20px; 
+        border-radius: 7px;
+        
+        margin: auto;
+       
+    }
+   
+
+}
+@media screen and (max-width: 500px) {
+
+    #image-es{
+        max-width: 320px;
+    }
+    #com2{
+        padding-left: none;
+       height:auto;
+       width: auto;
+       border-top: solid 1px;
+       border-left:none;
+        margin-top: 1%;
+        overflow: hidden;
+    }
+
+}
+@media screen and (min-width: 1050px) {
+    #menu
+{
+        border-bottom : 1px solid #9EA0A1;
+        padding-bottom : 25px;
+}
+#onglets
+{
+        position : absolute;
+        border : 1px solid transparent;
+        padding : 0;
+      
+        list-style-type : none;
+        left : 50%;
+        margin-top : 0;
+        width : 430px;
+}
+
 }
