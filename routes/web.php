@@ -14,6 +14,8 @@
 
 Route::get('/admin', 'AdminController@admin');
 
+Route::get('/403', 'AdminController@noacces');
+
 Route::get('/especes', 'AdminController@especes');
 
 Route::get('/articles', 'AdminController@articles');
@@ -59,7 +61,7 @@ Route::get('/mod/{id}', 'AdminController@mod');
 Route::get('/admin/{id}', 'AdminController@admins');
 
 Route::get('/', function () {
-    return redirect()->action('SerpeControleur@aff');;
+    return view('welcome');
 });
 Auth::routes();
 
