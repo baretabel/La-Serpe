@@ -17,8 +17,6 @@ class CreateSignals extends Migration
             $table->increments('id');
             $table->integer('article_id')->default(0);
             $table->integer('commentaire_id')->default(0);
-            $table->integer('user_id');
-
             
             $table->timestamps();
         });

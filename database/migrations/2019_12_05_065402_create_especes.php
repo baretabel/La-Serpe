@@ -21,6 +21,8 @@ class CreateEspeces extends Migration
             $table->string('famille');
             $table->string('type');
             $table->text('description');
+            $table->text('image');
+            $table->boolean('etat');
             $table->timestamps();
         });
     }

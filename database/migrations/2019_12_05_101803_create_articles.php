@@ -19,7 +19,7 @@ class CreateArticles extends Migration
             $table->integer('user_id');
             $table->string('titre');
             $table->text('post');
-            $table->boolean('etat')->default(false);
+            $table->boolean('etat')->default(true);
             $table->timestamps();
         });
     }
