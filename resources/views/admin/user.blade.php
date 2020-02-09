@@ -1,3 +1,6 @@
+@if(Auth::user()->role_id!=3)
+ return view('serpe/403');
+@endif
 @extends('layout.layout')
 
 @section('content')
