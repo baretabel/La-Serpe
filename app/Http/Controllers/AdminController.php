@@ -6,31 +6,60 @@ use App\Commentaire;
 use App\Article;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
-    public function admin(){
-        return view('admin/admin');
+    public function noacces(){
+        return view('serpe/403');
     }
     public function especes(){
         $especes = Espece::all();
+        if(Auth::guest()){
+          return redirect()->action('AdminController@noacces');
+        }
+        if( Auth::user()->role_id==3 || Auth::user()->role_id==2){
         return view('admin/espece',['especes'=> $especes]);
-    }
+      }else{
+        return redirect()->action('AdminController@noacces');
+      }
+      }
     public function articles(){
         $articles = Article::all();
         $valides = Article::where('etat', 1)->get();
         $attentes = Article::where('etat', 0)->get();
+        if(Auth::guest()){
+          return redirect()->action('AdminController@noacces');
+        }
+        if( Auth::user()->role_id==3 || Auth::user()->role_id==2){
         return view('admin/articles',['valides'=> $valides,'attentes'=> $attentes,'articles'=> $articles]);
-    }
+      }else{
+        return redirect()->action('AdminController@noacces');
+      }
+      }
     public function com(){
         $commentaires = Commentaire::all();
         $valides = Commentaire::where('etat', 1)->get();
         $attentes = Commentaire::where('etat', 0)->get();
+        if(Auth::guest()){
+          return redirect()->action('AdminController@noacces');
+        }
+        if( Auth::user()->role_id==3 || Auth::user()->role_id==2){
         return view('admin/commentaire',['valides'=> $valides,'attentes'=> $attentes,'commentaires'=> $commentaires]);
-    }
+        }else{
+          return redirect()->action('AdminController@noacces');
+        }
+      }
     public function user(){
         $users = User::all();
-        return view('admin/user',['users'=> $users]);
+        if(Auth::guest()){
+          return redirect()->action('AdminController@noacces');
+        }
+        if( Auth::user()->role_id==3){
+        return view('admin/user',['users'=> $users]);}
+        else{
+          return redirect()->action('AdminController@noacces');
+        }
     }
     public function destroy($id){
         $espece = Espece::where('id', $id)->first();

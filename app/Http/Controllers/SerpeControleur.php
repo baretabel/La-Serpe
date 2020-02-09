@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Espece;
 use App\Commentaire;
 use App\Article;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class SerpeControleur extends Controller
@@ -21,7 +21,7 @@ class SerpeControleur extends Controller
       return view('serpe/article',['article'=> $article]);
   }
     public function aff(){
-        $especes = Espece::all();
+        $especes = Espece::where('etat', 1)->get();
         return view('serpe/home',['especes'=> $especes]);
     }
     public function show($id){
@@ -45,6 +45,13 @@ class SerpeControleur extends Controller
         $especes->famille = $request->famille;
         $especes->type = $request->type;
         $especes->description = $request->description;
+        $especes->image = $request->img;
+        if(Auth::user()->role_id==2 || Auth::user()->role_id==3){
+          $especes->etat = 1;
+        }
+        if(Auth::user()->role_id==1){
+          $especes->etat = 0;
+        }
         $especes->save();
         return redirect()->action('SerpeControleur@aff');
       }
