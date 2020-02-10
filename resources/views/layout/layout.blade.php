@@ -90,7 +90,7 @@
                                   </li>
                                   @if(Auth::user()->role_id!=1)
                                   <li>
-                                    <a href="/admin">Dashboard</a>
+                                    <a href="/especes">Dashboard</a>
                                   </li>
                                   @endif
                                   @if(Auth::user())
