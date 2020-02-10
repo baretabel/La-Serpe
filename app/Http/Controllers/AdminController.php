@@ -6,6 +6,7 @@ use App\Commentaire;
 use App\Article;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -14,23 +15,52 @@ class AdminController extends Controller
     }
     public function especes(){
         $especes = Espece::all();
-        return view('admin/espece',['especes'=> $especes]);
+        if(Auth::guest()){
+          return view('serpe/403');
+        }
+        if(Auth::user()->role_id==2 ||Auth::user()->role_id==3){
+        return view('admin/espece',['especes'=> $especes]);}
+        else{
+          return view('serpe/403');
+        }
     }
     public function articles(){
         $articles = Article::all();
         $valides = Article::where('etat', 1)->get();
         $attentes = Article::where('etat', 0)->get();
+        if(Auth::guest()){
+          return view('serpe/403');
+        }
+        if(Auth::user()->role_id==2 ||Auth::user()->role_id==3){
         return view('admin/articles',['valides'=> $valides,'attentes'=> $attentes,'articles'=> $articles]);
+        }else{
+          return view('serpe/403');
+        }
     }
     public function com(){
         $commentaires = Commentaire::all();
         $valides = Commentaire::where('etat', 1)->get();
-        $attentes = Commentaire::where('etat', 0)->get();
+        $attentes = Commentaire::where('etat', 0)->get()
+        ;
+        if(Auth::guest()){
+          return view('serpe/403');
+        }
+        if(Auth::user()->role_id==2 ||Auth::user()->role_id==3){
         return view('admin/commentaire',['valides'=> $valides,'attentes'=> $attentes,'commentaires'=> $commentaires]);
-    }
+      }else{
+        return view('serpe/403');
+      }
+      }
     public function user(){
         $users = User::all();
+        if(Auth::guest()){
+          return view('serpe/403');
+        }
+        if(Auth::user()->role_id==3){
         return view('admin/user',['users'=> $users]);
+      }else{
+        return view('serpe/403');
+      }
     }
     public function destroy($id){
         $espece = Espece::where('id', $id)->first();
@@ -111,6 +141,14 @@ class AdminController extends Controller
         $commentaire->etat = 1;
         $commentaire->save();
         return redirect()->action('AdminController@com');
+        
+  
+      }
+      public function validation($id){
+        $espece = Espece::find($id);
+        $espece->etat = 1;
+        $espace->save();
+        return redirect()->action('AdminController@especes');
         
   
       }
