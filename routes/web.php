@@ -14,8 +14,6 @@
 
 Route::get('/admin', 'AdminController@admin');
 
-Route::get('/403', 'AdminController@noacces');
-
 Route::get('/especes', 'AdminController@especes');
 
 Route::get('/articles', 'AdminController@articles');

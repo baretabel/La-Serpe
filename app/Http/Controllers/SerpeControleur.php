@@ -46,10 +46,10 @@ class SerpeControleur extends Controller
         $especes->type = $request->type;
         $especes->description = $request->description;
         $especes->image = $request->img;
-        if(Auth::user()->role_id==2 || Auth::user()->role_id==3){
+        if(Auth::user()->role_id=2 || Auth::user()->role_id=3){
           $especes->etat = 1;
         }
-        if(Auth::user()->role_id==1){
+        if(Auth::user()->role_id=1){
           $especes->etat = 0;
         }
         $especes->save();
