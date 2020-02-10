@@ -12,13 +12,14 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 <body>
    
     <div id="app">
       <nav class="navbar navbar-default navbar-static-top">
-          <div class="container" >
-              <div class="navbar-header" style="background-color: #167549">
+          <div class="container">
+              <div class="navbar-header">
 
                   <!-- Collapsed Hamburger -->
                   <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
@@ -44,8 +45,8 @@
                   <ul class="nav navbar-nav navbar-right">
                       <!-- Authentication Links -->
                       @if (Auth::guest())
-                          <li><a href="{{ route('login') }}">Login</a></li>
-                          <li><a href="{{ route('register') }}">Register</a></li>
+                      <li><a href="{{ route('login') }}">Se connecter</a></li>
+                      <li><a href="{{ route('register') }}">S'incrire</a></li>
                       @else
                           <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -57,7 +58,7 @@
                                       <a href="/aff"
                                           onclick="event.preventDefault();
                                                    document.getElementById('logout-form').submit();">
-                                          Logout
+                                          Déconnecter
                                       </a>
 
                                       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -67,6 +68,11 @@
                                   @if(Auth::user()->role_id!=1)
                                   <li>
                                     <a href="/admin">Dashboard</a>
+                                  </li>
+                                  @endif
+                                  @if(Auth::user())
+                                  <li>
+                                    <a href="/form">Nouvelle Espèce</a>
                                   </li>
                                   @endif
                               </ul>
