@@ -52,6 +52,8 @@ Route::get('/supp/{id}', 'AdminController@supp');
 
 Route::get('/valid/{id}', 'AdminController@valid');
 
+Route::get('/validation/{id}', 'AdminController@validation');
+
 Route::get('/util/{id}', 'AdminController@util');
 
 Route::get('/mod/{id}', 'AdminController@mod');
