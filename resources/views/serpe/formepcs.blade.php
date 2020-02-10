@@ -3,7 +3,10 @@
 
 
 <br><br><br>
-<form action="/insert" method="POST" style="widht: 50%; margin-left:50px">
+<div class="form-cad" >
+  <h2>Nouvelle Espèce</h2>
+  <br>
+<form action="/insert" method="POST">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
           <label for="nomCommun">Nom Commun</label>
@@ -14,8 +17,8 @@
           <input type="text" class="form-control" name="latin" id="nomLatin" placeholder="Nom Latin" required>
         </div>
         <div class="form-group">
-                <label for="nomCreole">Nom Créole</label>
-                <input type="text" class="form-control"name="creole" id="nomCreole" placeholder="Nom Créole" >
+                <label for="nomCreole">Autre Nom</label>
+                <input type="text" class="form-control"name="creole" id="nomCreole" placeholder="Autre Nom" >
               </div>
               <div class="form-group">
                 <label for="famille">Famille Botanique </label>
@@ -28,9 +31,13 @@
               <div class="form-group">
                 <label for="description">Description</label><br>
                 
-                <textarea id="description" name="description" rows="5" cols="33" required></textarea>
+                <textarea id="description" class="form-control" name="description" rows="5" cols="33" required></textarea>
               </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+              <div class="form-group">
+                <label for="type">Lien d'image</label>
+                <input type="text" class="form-control"name="img" id="img" placeholder="Lien d'image" required>
+              </div>
+        <button type="submit" class="btn btn-success form-control">Valider</button>
       </form>
-      
+ <div>     
 @endsection

@@ -3,6 +3,9 @@
 
 
 <br><br><br>
+<div class="form-cad" >
+  <h2>Nouvel Article</h2>
+  <br>
 <form action="/art" method="POST">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="form-group">
@@ -14,9 +17,9 @@
               <div class="form-group">
                 <label for="article">Articles</label><br>
                 
-                <textarea id="article" name="article" rows="5" cols="33" required></textarea>
+                <textarea id="article"  class="form-control"  name="article" rows="5" cols="33" required></textarea>
               </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success form-control">Submit</button>
       </form>
-      
+</div>
 @endsection
