@@ -7,7 +7,7 @@
     <meta name="generator" content="Jekyll v3.8.5">
     <title>La Serpe</title>
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -15,7 +15,7 @@
 
     <!-- Bootstrap core CSS -->
 <!--<link href="/docs/4.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
-
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <style>
@@ -68,8 +68,8 @@
                   <ul class="nav navbar-nav navbar-right">
                       <!-- Authentication Links -->
                       @if (Auth::guest())
-                          <li><a href="{{ route('login') }}">Login</a></li>
-                          <li><a href="{{ route('register') }}">Register</a></li>
+                          <li><a href="{{ route('login') }}">Se connecter</a></li>
+                          <li><a href="{{ route('register') }}">S'inscrire</a></li>
                       @else
                           <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -91,6 +91,11 @@
                                   @if(Auth::user()->role_id!=1)
                                   <li>
                                     <a href="/admin">Dashboard</a>
+                                  </li>
+                                  @endif
+                                  @if(Auth::user())
+                                  <li>
+                                    <a href="/form">Nouvelle Espèce</a>
                                   </li>
                                   @endif
                               </ul>
