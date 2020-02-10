@@ -51,7 +51,7 @@
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <a href="/destroy/{{$espece->id}}" class="btn btn-primary">Supprimer</a>
           @if($espece->etat==0)
-          <a href="/val/{{$espece->id}}" class="btn btn-primary">Valider</a>
+          <a href="/validation/{{$espece->id}}" class="btn btn-primary">Valider</a>
           @endif
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mod{{$espece->id}}" data-dismiss="modal">Modifier</button>
         </div>
