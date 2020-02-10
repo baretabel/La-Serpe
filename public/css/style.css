@@ -10,6 +10,9 @@
 .form-cad h2{
     text-align: center;
 }
+.form-cad h3{
+    text-align: center;
+}
 .navbar-default{
     background-color: #1675496b!important;
 }.art-cad{
@@ -33,15 +36,6 @@
     justify-content: center;
     flex-wrap: wrap;
   
-}
-.bg-danger{
-    background-color: #e7a4306d!important;
-}
-.border-nav{
-    border-right: solid #e7a43059 1px;
-}
-.text-art{
-    text-align: center;
 }
 .corps{
       width: 75%;
@@ -111,7 +105,7 @@ a{
 }
 .vis
 {
-    display:block !important;
+    display:block;
 }
 #image-es{
     max-height: 350px;
@@ -157,6 +151,13 @@ flex-wrap: wrap;
 }
 #carac{
     text-align: center;
+}
+.panel{
+    background-color: #1675496b;
+}
+.panel-default>.panel-heading {
+    background-color: #1675496b;
+    color: #167549;
 }
 @media screen and (max-width: 1050px) {
     .form-cad{
