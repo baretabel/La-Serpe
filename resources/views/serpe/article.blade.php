@@ -5,7 +5,8 @@
 <h3>{{ $article->titre }}</h3>
 <br><br>
 <p>{{ $article->post }}</p><br>
-<p style="font-size:0.7em"> crée le {{ $article->created_at }} par {{ $article->user->pseudo }}</p>
+<p style="font-size:0.7em"> crée le {{ $article->created_at }} par {{ $article->user->pseudo }}</p><br>
+<a href="/espece/{{ $article->espece_id }}" class="btn btn-success form-control">Retour</a>
 <div>
 @endsection
 
