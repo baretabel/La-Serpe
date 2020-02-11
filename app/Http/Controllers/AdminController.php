@@ -14,12 +14,14 @@ class AdminController extends Controller
         return view('admin/admin');
     }
     public function especes(){
-        $especes = Espece::all();
+      $especes = Espece::all();
+      $valides = Espece::where('etat', 1)->get();
+      $attentes = Espece::where('etat', 0)->get();
         if(Auth::guest()){
           return view('serpe/403');
         }
         if(Auth::user()->role_id==2 ||Auth::user()->role_id==3){
-        return view('admin/espece',['especes'=> $especes]);}
+        return view('admin/espece',['especes'=> $especes,'attentes'=> $attentes,'valides'=> $valides]);}
         else{
           return view('serpe/403');
         }
@@ -71,6 +73,7 @@ class AdminController extends Controller
         
   
       }
+
       public function sup($id){
         $article = Article::where('id', $id)->first();
         $article->delete();
@@ -78,6 +81,7 @@ class AdminController extends Controller
         
   
       }
+
       public function val($id){
         $articles = Article::find($id);
         $articles->etat = 1;
@@ -110,6 +114,7 @@ class AdminController extends Controller
       
       return redirect()->action('AdminController@especes');
       }
+
       public function modiff(Request $request){
 
         $this->validate($request,[
@@ -147,7 +152,7 @@ class AdminController extends Controller
       public function validation($id){
         $espece = Espece::find($id);
         $espece->etat = 1;
-        $espece->save();
+        $espace->save();
         return redirect()->action('AdminController@especes');
         
   

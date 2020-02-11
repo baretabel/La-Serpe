@@ -10,20 +10,29 @@ use Illuminate\Http\Request;
 class SerpeControleur extends Controller
 {
     public function form(){
-        return view('serpe/formepcs');
+      if(Auth::guest()){
+        return view('serpe/403');
+      }else{
+        return view('serpe/formepcs');}
     }
     public function nouv($id){
         $espece = Espece::where('id', $id)->first();
+        if(Auth::guest()){
+          return view('serpe/403');
+        }else{
         return view('serpe/formart',['especes'=> $espece]);
+        }
     }
     public function article($id){
       $article = Article::where('id', $id)->first();
       return view('serpe/article',['article'=> $article]);
   }
+
     public function aff(){
         $especes = Espece::where('etat', 1)->get();
         return view('serpe/home',['especes'=> $especes]);
     }
+
     public function show($id){
         $espece = Espece::where('id', $id)->first();
         $commentaires= Commentaire::where('espece_id', $id)->get();
@@ -36,8 +45,6 @@ class SerpeControleur extends Controller
 
     public function create(Request $request){
   
-   
-
         $especes = new Espece;
         $especes->nom = $request->nom;
         $especes->latin = $request->latin;
