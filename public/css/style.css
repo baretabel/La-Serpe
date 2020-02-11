@@ -206,4 +206,9 @@ flex-wrap: wrap;
         width : 430px;
 }
 
+}.modal a{
+    color:#fff!important;
+}
+table a{
+    color:#fff!important;
 }
