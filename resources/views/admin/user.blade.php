@@ -6,6 +6,7 @@
 @include('nav/nav')
 </div>
 <div class="col-md-8">
+  <h1>Utilisateurs</h1>
 <table class="table" >
     <thead>
       <tr>
@@ -23,9 +24,9 @@
         <th scope="row">{{$user->id}}</th>
         <td>{{$user->pseudo}}</td>
         <td>{{$user->role->role}}</td>  
-        <td><a href="/util/{{$user->id}}" class="btn btn-primary" >Utilisateur</a>
-          <a href="/mod/{{$user->id}}"  class="btn btn-primary">Moderateur</a>
-          <a href="/admin/{{$user->id}}"  class="btn btn-primary" >Administrateur</a></td>
+        <td><a href="/util/{{$user->id}}" class="btn btn-success" >Utilisateur</a>
+          <a href="/mod/{{$user->id}}"  class="btn btn-success">Moderateur</a>
+          <a href="/admin/{{$user->id}}"  class="btn btn-success" >Administrateur</a></td>
       </tr> 
       @endforeach
      

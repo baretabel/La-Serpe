@@ -6,7 +6,35 @@
 @include('nav/nav')
 </div>
 <div class="col-md-8">
+  <h1>Articles validés</h1>
+  <table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Titre</th>
+        <th scope="col">Especes</th>
+        <th scope="col">Auteur</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach ($valides as $valide)
+            
+       
+      <tr>
+        <th scope="row">{{$valide->id}}</th>
+        <td>{{$valide->titre}}</td>
+        <td>{{$valide->espece->nom}}</td>
+        <td>{{$valide->user->pseudo}}</td>
+        <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#{{$valide->id}}">Détails</button></td>
+      </tr> 
+      @endforeach
+   
+    </tbody>
+     </table>
+     <br><br>
 <table class="table" >
+  <h1>Articles en attentes de validation</h1>
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -25,37 +53,13 @@
         <td>{{$attente->titre}}</td>
         <td>{{$attente->espece->nom}}</td>
         <td>{{$attente->user->pseudo}}</td>
-        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$attente->id}}">Détails</button></td>
+        <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#{{$attente->id}}">Détails</button></td>
       </tr> 
       @endforeach
      
     </tbody>
      </table>
-     <table class="table" >
-            <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Titre</th>
-                <th scope="col">Especes</th>
-                <th scope="col">Auteur</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody>
-                @foreach ($valides as $valide)
-                    
-               
-              <tr>
-                <th scope="row">{{$valide->id}}</th>
-                <td>{{$valide->titre}}</td>
-                <td>{{$valide->espece->nom}}</td>
-                <td>{{$valide->user->pseudo}}</td>
-                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$valide->id}}">Détails</button></td>
-              </tr> 
-              @endforeach
-             
-            </tbody>
-             </table>
+    
 
 <!--Modal de details-->
 
@@ -71,13 +75,15 @@
                   </div>
                   <div class="modal-body">
                     {{$article->post}} <br>
-                    par {{$valide->user->pseudo}}
+                    par {{$article->user->pseudo}}
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <a href="/sup/{{$article->id}}" class="btn btn-primary">Supprimer</a>
-                    <a href="/val/{{$article->id}}" class="btn btn-primary">Valider</a>
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mod{{$article->id}}" data-dismiss="modal">Modifier</button>
+                    <a href="/sup/{{$article->id}}" class="btn btn-success">Supprimer</a>
+                    @if($article->etat==0)
+                    <a href="/val/{{$article->id}}" class="btn btn-success">Valider</a>
+                    @endif
+                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mod{{$article->id}}" data-dismiss="modal">Modifier</button>
                   </div>
                  </div>
                </div>
@@ -113,7 +119,7 @@
                     <textarea id="article" class="form-control" name="article" rows="5" cols="33" required>{{$article->post}}</textarea>
                   </div>
             
-          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="submit" class="btn btn-success">Submit</button>
               </form>
         </div>
       </div>

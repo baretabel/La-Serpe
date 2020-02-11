@@ -6,30 +6,7 @@
 @include('nav/nav')
 </div>
 <div class="col-md-8">
-<table class="table" >
-    <thead>
-      <tr>
-        <th scope="col">Id</th>
-        
-        <th scope="col">Especes</th>
-        <th scope="col">Auteur</th>
-        <th scope="col"></th>
-      </tr>
-    </thead>
-    <tbody>
-        @foreach ($attentes as $attente)
-            
-       
-      <tr>
-        <th scope="row">{{$attente->id}}</th>
-        <td>{{$attente->espece->nom}}</td>
-        <td>{{$attente->user->pseudo}}</td>
-        <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$attente->id}}">Détails</button></td>
-      </tr> 
-      @endforeach
-     
-    </tbody>
-     </table>
+<h1>Commentaires</h1>
      <table class="table" >
             <thead>
               <tr>
@@ -48,7 +25,7 @@
                 <th scope="row">{{$valide->id}}</th>
                 <td>{{$valide->espece->nom}}</td>
                 <td>{{$valide->user->pseudo}}</td>
-                <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#{{$valide->id}}">Détails</button></td>
+                <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#{{$valide->id}}">Détails</button></td>
               </tr> 
               @endforeach
              
@@ -72,9 +49,8 @@
                                </div>
                                <div class="modal-footer">
                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                 <a href="/supp/{{$commentaire->id}}" class="btn btn-primary">Supprimer</a>
-                                 <a href="/valid/{{$commentaire->id}}" class="btn btn-primary">Valider</a>
-                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#mod{{$commentaire->id}}" data-dismiss="modal">Modifier</button>
+                                 <a href="/supp/{{$commentaire->id}}" class="btn btn-success">Supprimer</a>
+                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#mod{{$commentaire->id}}" data-dismiss="modal">Modifier</button>
                                </div>
                               </div>
                             </div>
@@ -106,7 +82,7 @@
                   <textarea id="commentaire" class="form-control" name="commentaire" rows="5" cols="33" required>{{$commentaire->post}}</textarea>
                 </div>
           
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-success">Submit</button>
             </form>
       </div>
     </div>
