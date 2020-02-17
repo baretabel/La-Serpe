@@ -152,7 +152,7 @@ class AdminController extends Controller
       public function validation($id){
         $espece = Espece::find($id);
         $espece->etat = 1;
-        $espace->save();
+        $espece->save();
         return redirect()->action('AdminController@especes');
         
   
