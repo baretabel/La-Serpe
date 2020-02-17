@@ -77,7 +77,8 @@
           </button>
         </div>
         <div class="modal-body">
-          {{$espece->description}}
+          {{nl2br(e( $espece->description)) !!}}
+         
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

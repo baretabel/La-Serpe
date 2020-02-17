@@ -74,7 +74,7 @@
                     </button>
                   </div>
                   <div class="modal-body">
-                    {{$article->post}} <br>
+                    {!!  nl2br(e( $article->post))  !!} <br>
                     par {{$article->user->pseudo}}
                   </div>
                   <div class="modal-footer">
