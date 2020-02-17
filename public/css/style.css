@@ -159,6 +159,30 @@ flex-wrap: wrap;
     background-color: #1675496b;
     color: #167549;
 }
+#article ul{
+    overflow-y: auto;
+    width: 80%;
+    height: 75px;
+    display:flex;
+    margin:auto;
+    
+    flex-wrap:wrap ;
+   
+}
+#article a{
+    color:#fff!important;
+}
+#article li{
+list-style: none !important;
+ margin-right: 35px;
+}
+#article li a{
+  
+    color: #167549!important;
+    }
+#article{
+    text-align: center;
+}
 @media screen and (max-width: 1050px) {
     .form-cad{
         width:80%;
