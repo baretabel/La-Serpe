@@ -83,7 +83,12 @@ class SerpeControleur extends Controller
         $articles->user_id = $request->idu;
         $articles->titre = $request->titre;
         $articles->post = $request->article;
-      
+        if(Auth::user()->role_id=2 || Auth::user()->role_id=3){
+          $articles->etat = 1;
+        }
+        if(Auth::user()->role_id=1){
+          $articles->etat = 0;
+        }
         $articles->save();
         return redirect()->action('SerpeControleur@show', array($request->id));
       }
