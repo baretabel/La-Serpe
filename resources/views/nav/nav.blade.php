@@ -1,4 +1,4 @@
-<nav class="nav flex-column" style="width: 170px;height:100%;margin: 0px !important;background-color:#16754985">
+<nav class="nav flex-column bg-danger" style="width: 170px;height:100%;margin: 0px !important;">
   <ul>
     <li><a href="/especes">Especes</a></li>
     <li><a href="/articles">Articles</a></li>
