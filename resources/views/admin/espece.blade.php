@@ -77,7 +77,7 @@
           </button>
         </div>
         <div class="modal-body">
-          {{nl2br(e( $espece->description)) !!}}
+          {{!! nl2br(e( $espece->description)) !!}}
          
         </div>
         <div class="modal-footer">
