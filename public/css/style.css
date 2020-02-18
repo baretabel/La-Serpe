@@ -112,7 +112,11 @@ a{
 }
 .desc{
     text-align: center;
-}.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
+}.desc p{
+   margin-left: 25%;
+   margin-right: 25%;
+}
+.navbar-default .navbar-nav>.open>a, .navbar-default .navbar-nav>.open>a:focus, .navbar-default .navbar-nav>.open>a:hover {
     background-color: #1675496b!important;
 }
 .dropdown-menu{
@@ -235,4 +239,6 @@ list-style: none !important;
 }
 table a{
     color:#fff!important;
+}.nav ul{
+    list-style: none;
 }
